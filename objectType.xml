@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/objectType.xsd">
+	<import>
+		<!-- Category -->
+		<type>
+			<name>ch.grischamedia.sammel.category</name>
+			<definitionname>com.woltlab.wcf.category</definitionname>
+			<classname>wcf\system\category\SammelCategoryType</classname>
+			<defaultpermission>1</defaultpermission>
+		</type>
+		
+		<!-- Label -->
+		<type>
+			<name>ch.grischamedia.sammel.label</name>
+			<definitionname>com.woltlab.wcf.label.object</definitionname>
+			<classname>wcf\system\label\object\SammelLabelObjectHandler</classname>
+		</type>
+		<type>
+			<name>ch.grischamedia.sammel.category</name>
+			<definitionname>com.woltlab.wcf.label.objectType</definitionname>
+			<classname>wcf\system\label\object\type\SammelCategoryLabelObjectTypeHandler</classname>
+		</type>
+		
+		<!-- acl -->
+		<type>
+			<name>ch.grischamedia.sammel.category</name>
+			<definitionname>com.woltlab.wcf.acl</definitionname>
+		</type>
+		
+		<!-- message -->
+		<type>
+			<name>ch.grischamedia.sammel</name>
+			<definitionname>com.woltlab.wcf.message</definitionname>
+		</type>
+	</import>
+</data>
