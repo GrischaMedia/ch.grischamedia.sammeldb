@@ -194,6 +194,11 @@ class SammelAddForm extends AbstractForm {
 			throw new UserInputException('categoryID', 'invalid');
 		}
 		
+		$accessIDs = SammelCategory::getAccessibleCategoryIDs(['canUseCategory']);
+		if (!in_array($this->categoryID, $accessIDs)) {
+			throw new UserInputException('categoryID', 'invalid');
+		}
+		
 		// number, except empty ufn
 		//if (empty($this->number)) {
 		//	throw new UserInputException('number', 'empty');

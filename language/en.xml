@@ -28,6 +28,12 @@
 		<item name="wcf.acp.option.category.sammel.icon"><![CDATA[Icon]]></item>
 		<item name="wcf.acp.option.category.sammel.page"><![CDATA[Page]]></item>
 		<item name="wcf.acp.option.category.sammel.text"><![CDATA[Texts]]></item>
+		<item name="wcf.acp.option.sammel.table_details"><![CDATA[Details]]></item>
+		<item name="wcf.acp.option.sammel.table_icon"><![CDATA[Icon]]></item>
+		<item name="wcf.acp.option.sammel.table_number"><![CDATA[Number]]></item>
+		<item name="wcf.acp.option.sammel.table_online"><![CDATA[Online]]></item>
+		<item name="wcf.acp.option.sammel.table_title"><![CDATA[Title]]></item>
+		<item name="wcf.acp.option.sammel.table_url"><![CDATA[URL]]></item>
 		<item name="wcf.acp.option.sammel_excerpt_length"><![CDATA[Excerpt Length]]></item>
 		<item name="wcf.acp.option.sammel_items_per_page"><![CDATA[Items per page]]></item>
 		<item name="wcf.acp.option.sammel_table_icon"><![CDATA[Column Icon]]></item>

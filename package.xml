@@ -6,7 +6,7 @@
 		<packagename language="de">GrischaMedia SammelDB</packagename>
 		<packagedescription language="de">Erstellen Sie eine Datenbank über Ihre Sammlungen wie Games, Bücher, Comics uvm..</packagedescription>
 		<version>5.2.1</version>
-		<date>2020-06-19</date>
+		<date>2020-06-30</date>
 		<license><![CDATA[GrischaMedia.ch Commercial Licence]]></license>
 	</packageinformation>
 	
@@ -20,7 +20,7 @@
 	</requiredpackages>
 	
 	<excludedpackages>
-		<excludedpackage version="5.3.0 Alpha 1">com.woltlab.wcf</excludedpackage>
+		<excludedpackage version="6.0.0 Alpha 1">com.woltlab.wcf</excludedpackage>
 	</excludedpackages>
 	
 	<instructions type="install">
@@ -28,6 +28,7 @@
 		<instruction type="templateListener">templateListener.xml</instruction>
 		<instruction type="file">files.tar</instruction>
 		<instruction type="userGroupOption">userGroupOption.xml</instruction>
+		<instruction type="option">option.xml</instruction>
 		<instruction type="acpMenu">acpMenu.xml</instruction>
 		<instruction type="language">language/*.xml</instruction>
 		<instruction type="sql">install.sql</instruction>
@@ -35,7 +36,6 @@
 		<instruction type="aclOption">aclOption.xml</instruction>
 		<instruction type="page">page.xml</instruction>
 		<instruction type="menuItem">menuItem.xml</instruction>
-		<instruction type="option">option.xml</instruction>
 	</instructions>
 	
 	<instructions type="update" fromversion="5.2.0">
@@ -43,8 +43,14 @@
 		<instruction type="template">templates.tar</instruction>
 		<instruction type="objectType">objectType.xml</instruction>
 		<instruction type="aclOption">aclOption.xml</instruction>
-		<instruction type="language">language/*.xml</instruction>
 		<instruction type="option">option.xml</instruction>
+		<instruction type="language">language/*.xml</instruction>
 		<instruction type="sql">update_101.sql</instruction>
+	</instructions>
+	
+	<instructions type="update" fromversion="1.0.1 RC 1">
+		<instruction type="file">files.tar</instruction>
+		<instruction type="option">option.xml</instruction>
+		<instruction type="language">language/*.xml</instruction>
 	</instructions>
 </package>

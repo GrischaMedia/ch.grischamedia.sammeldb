@@ -1,6 +1,7 @@
 <?php
 namespace wcf\data\sammel;
 use wcf\data\DatabaseObject;
+use wcf\data\sammel\category\SammelCategory;
 use wcf\system\label\object\SammelLabelObjectHandler;
 use wcf\system\html\output\HtmlOutputProcessor;
 use wcf\system\request\IRouteController;
@@ -106,5 +107,39 @@ class Sammel extends DatabaseObject implements IRouteController {
 		}
 		
 		return '';
+	}
+	
+	/**
+	 * Returns true if current user can edit this sammel.
+	 */
+	public function canEdit() {
+		// check category
+		$accessIDs = SammelCategory::getAccessibleCategoryIDs(['canUseCategory']);
+		if ($this->categoryID && !in_array($this->categoryID, $accessIDs)) {
+			return false;
+		}
+		// check permission
+		if (!WCF::getSession()->getPermission('user.sammel.canEdit')) {
+			return false;
+		}
+		
+		return true;
+	}
+	
+	/**
+	 * Returns true if current user can see this sammel.
+	 */
+	public function canSee() {
+		// check category
+		$accessIDs = SammelCategory::getAccessibleCategoryIDs(['canViewCategory']);
+		if ($this->categoryID && !in_array($this->categoryID, $accessIDs)) {
+			return false;
+		}
+		// check permission
+		if (!WCF::getSession()->getPermission('user.sammel.canSee')) {
+			return false;
+		}
+		
+		return true;
 	}
 }

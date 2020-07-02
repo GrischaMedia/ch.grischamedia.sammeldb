@@ -153,6 +153,19 @@ class SammelPage extends SortablePage{
 			}
 		}
 		
+		// excerpt added
+		if (count($itemsToCategory)) {
+			foreach ($itemsToCategory as $items) {
+				foreach ($items as $item) {
+					$item->truncated = '';
+					$item->details = $item->getFormattedDetails();
+					if (mb_strlen($item->details) > SAMMEL_EXCERPT_LENGTH) {
+						$item->truncated = $item->getFormattedExcerpt(SAMMEL_EXCERPT_LENGTH);
+					}
+				}
+			}
+		}
+		
 		return $itemsToCategory;
 	}
 }

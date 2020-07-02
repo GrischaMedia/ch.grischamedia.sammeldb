@@ -4,6 +4,7 @@ use wcf\data\sammel\Sammel;
 use wcf\data\sammel\SammelAction;
 use wcf\form\AbstractForm;
 use wcf\system\exception\IllegalLinkException;
+use wcf\system\exception\PermissionDeniedException;
 use wcf\system\label\object\SammelLabelObjectHandler;
 use wcf\system\request\LinkHandler;
 use wcf\system\WCF;
@@ -36,6 +37,10 @@ class SammelEditForm extends SammelAddForm {
 		$this->sammel = new Sammel($this->sammelID);
 		if (!$this->sammel->sammelID) {
 			throw new IllegalLinkException();
+		}
+		
+		if (!$this->sammel->canEdit()) {
+			throw new PermissionDeniedException();
 		}
 	}
 	

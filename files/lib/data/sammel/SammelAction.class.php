@@ -89,16 +89,23 @@ class SammelAction extends AbstractDatabaseObjectAction implements IToggleAction
 	 * Delete given items.
 	 */
 	public function validateDelete() {
-		if (!WCF::getSession()->getPermission('user.sammel.canEdit')) {
-			throw new PermissionDeniedException();
+		// read objects
+		if (empty($this->objects)) {
+			$this->readObjects();
+			
+			if (empty($this->objects)) {
+				throw new IllegalLinkException();
+			}
+		}
+		
+		foreach ($this->getObjects() as $sammel) {
+			if (!$sammel->canEdit()) {
+				throw new PermissionDeniedException();
+			}
 		}
 	}
 	
 	public function delete() {
-		if (empty($this->objects)) {
-			$this->readObjects();
-		}
-		
 		foreach ($this->getObjects() as $item) {
 			$item->delete();
 			
@@ -114,14 +121,27 @@ class SammelAction extends AbstractDatabaseObjectAction implements IToggleAction
 	 * @inheritDoc
 	 */
 	public function validateToggle() {
-		parent::validateUpdate();
+		// read objects
+		if (empty($this->objects)) {
+			$this->readObjects();
+			
+			if (empty($this->objects)) {
+				throw new IllegalLinkException();
+			}
+		}
+		
+		foreach ($this->getObjects() as $sammel) {
+			if (!$sammel->canEdit()) {
+				throw new PermissionDeniedException();
+			}
+		}
 	}
 	
 	/**
 	 * @inheritDoc
 	 */
 	public function toggle() {
-		foreach ($this->objects as $item) {
+		foreach ($this->getObjects() as $item) {
 			$item->update([
 					'isDisabled' => $item->isDisabled ? 0 : 1
 			]);
@@ -132,13 +152,13 @@ class SammelAction extends AbstractDatabaseObjectAction implements IToggleAction
 	 * Open details text.
 	 */
 	public function validateOpen() {
-		if (!WCF::getSession()->getPermission('user.sammel.canSee')) {
-			throw new PermissionDeniedException();
-		}
-		
 		$this->item = new Sammel($this->parameters['objectID']);
 		if (!$this->item->sammelID) {
 			throw new IllegalLinkException();
+		}
+		
+		if (!$this->item->canSee()) {
+			throw new PermissionDeniedException();
 		}
 	}
 	
@@ -153,13 +173,13 @@ class SammelAction extends AbstractDatabaseObjectAction implements IToggleAction
 	 * Open dialog with full-sized icon.
 	 */
 	public function validateGetIconDialog() {
-		if (!WCF::getSession()->getPermission('user.sammel.canSee')) {
-			throw new PermissionDeniedException();
-		}
-		
 		$this->item = new Sammel($this->parameters['objectID']);
 		if (!$this->item->sammelID) {
 			throw new IllegalLinkException();
+		}
+		
+		if (!$this->item->canSee()) {
+			throw new PermissionDeniedException();
 		}
 	}
 	
@@ -199,6 +219,10 @@ class SammelAction extends AbstractDatabaseObjectAction implements IToggleAction
 			$this->sammel = new Sammel($this->parameters['sammelID']);
 			if (!$this->sammel->sammelID) {
 				throw new UserInputException('sammelID');
+			}
+			
+			if (!$this->sammel->canEdit()) {
+				throw new PermissionDeniedException();
 			}
 		}
 		
@@ -282,6 +306,10 @@ class SammelAction extends AbstractDatabaseObjectAction implements IToggleAction
 			$this->sammel = new Sammel($this->parameters['sammelID']);
 			if (!$this->sammel->sammelID) {
 				throw new UserInputException('sammelID');
+			}
+			
+			if (!$this->sammel->canEdit()) {
+				throw new PermissionDeniedException();
 			}
 			
 			if (!$this->sammel->getIconLocation()) {

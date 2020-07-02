@@ -32,37 +32,37 @@
 				<categoryname>sammel.text</categoryname>
 				<optiontype>textI18n</optiontype>
 				<supporti18n>1</supporti18n>
-				<defaultvalue>Icon</defaultvalue>
+				<defaultvalue>wcf.acp.option.sammel.table_icon</defaultvalue>
 			</option>
 			<option name="sammel_table_title">
 				<categoryname>sammel.text</categoryname>
 				<optiontype>textI18n</optiontype>
 				<supporti18n>1</supporti18n>
-				<defaultvalue>Titel</defaultvalue>
+				<defaultvalue>wcf.acp.option.sammel.table_title</defaultvalue>
 			</option>
 			<option name="sammel_table_details">
 				<categoryname>sammel.text</categoryname>
 				<optiontype>textI18n</optiontype>
 				<supporti18n>1</supporti18n>
-				<defaultvalue>Details</defaultvalue>
+				<defaultvalue>wcf.acp.option.sammel.table_details</defaultvalue>
 			</option>
 			<option name="sammel_table_number">
 				<categoryname>sammel.text</categoryname>
 				<optiontype>textI18n</optiontype>
 				<supporti18n>1</supporti18n>
-				<defaultvalue>Anzahl</defaultvalue>
+				<defaultvalue>wcf.acp.option.sammel.table_number</defaultvalue>
 			</option>
 			<option name="sammel_table_online">
 				<categoryname>sammel.text</categoryname>
 				<optiontype>textI18n</optiontype>
 				<supporti18n>1</supporti18n>
-				<defaultvalue>Online</defaultvalue>
+				<defaultvalue>wcf.acp.option.sammel.table_online</defaultvalue>
 			</option>
 			<option name="sammel_table_url">
 				<categoryname>sammel.text</categoryname>
 				<optiontype>textI18n</optiontype>
 				<supporti18n>1</supporti18n>
-				<defaultvalue>URL</defaultvalue>
+				<defaultvalue>wcf.acp.option.sammel.table_url</defaultvalue>
 			</option>
 			
 			<option name="sammel_items_per_page">
