@@ -61,4 +61,12 @@
 	<instructions type="update" fromversion="5.3.0">
 		<instruction type="language">language/*.xml</instruction>
 	</instructions>
+
+	<instructions type="update" fromversion="5.4.0">
+		<instruction type="language">language/*.xml</instruction>
+	</instructions>
+
+	<instructions type="update" fromversion="5.4.1">
+		<instruction type="language">language/*.xml</instruction>
+	</instructions>
 </package>
