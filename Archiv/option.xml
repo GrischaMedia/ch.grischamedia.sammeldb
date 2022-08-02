@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/option.xsd">
+	<import>
+		<categories>
+			<category name="sammel">
+			</category>
+			
+			<category name="sammel.text">
+				<parent>sammel</parent>
+			</category>
+			
+			<category name="sammel.page">
+				<parent>sammel</parent>
+			</category>
+			
+			<category name="sammel.icon">
+				<parent>sammel</parent>
+			</category>
+		</categories>
+		
+		<options>
+			<option name="sammel_excerpt_length">
+				<categoryname>sammel.text</categoryname>
+				<optiontype>integer</optiontype>
+				<minvalue>50</minvalue>
+				<defaultvalue>250</defaultvalue>
+				<maxvalue>50000</maxvalue>
+				<suffix>chars</suffix>
+			</option>
+			
+			<option name="sammel_table_icon">
+				<categoryname>sammel.text</categoryname>
+				<optiontype>textI18n</optiontype>
+				<supporti18n>1</supporti18n>
+				<defaultvalue>wcf.acp.option.sammel.table_icon</defaultvalue>
+			</option>
+			<option name="sammel_table_title">
+				<categoryname>sammel.text</categoryname>
+				<optiontype>textI18n</optiontype>
+				<supporti18n>1</supporti18n>
+				<defaultvalue>wcf.acp.option.sammel.table_title</defaultvalue>
+			</option>
+			<option name="sammel_table_details">
+				<categoryname>sammel.text</categoryname>
+				<optiontype>textI18n</optiontype>
+				<supporti18n>1</supporti18n>
+				<defaultvalue>wcf.acp.option.sammel.table_details</defaultvalue>
+			</option>
+			<option name="sammel_table_number">
+				<categoryname>sammel.text</categoryname>
+				<optiontype>textI18n</optiontype>
+				<supporti18n>1</supporti18n>
+				<defaultvalue>wcf.acp.option.sammel.table_number</defaultvalue>
+			</option>
+			<option name="sammel_table_online">
+				<categoryname>sammel.text</categoryname>
+				<optiontype>textI18n</optiontype>
+				<supporti18n>1</supporti18n>
+				<defaultvalue>wcf.acp.option.sammel.table_online</defaultvalue>
+			</option>
+			<option name="sammel_table_url">
+				<categoryname>sammel.text</categoryname>
+				<optiontype>textI18n</optiontype>
+				<supporti18n>1</supporti18n>
+				<defaultvalue>wcf.acp.option.sammel.table_url</defaultvalue>
+			</option>
+			
+			<option name="sammel_items_per_page">
+				<categoryname>sammel.page</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>25</defaultvalue>
+				<minvalue>3</minvalue>
+				<maxvalue>1000</maxvalue>
+			</option>
+			
+			<option name="sammel_icon_maxSize">
+				<categoryname>sammel.icon</categoryname>
+				<optiontype>fileSize</optiontype>
+				<minvalue>1000</minvalue>
+				<defaultvalue>6500000</defaultvalue>
+			</option>
+			<option name="sammel_icon_icon">
+				<categoryname>sammel.icon</categoryname>
+				<optiontype>text</optiontype>
+				<defaultvalue>file-image-o</defaultvalue>
+			</option>
+		</options>
+	</import>
+</data>

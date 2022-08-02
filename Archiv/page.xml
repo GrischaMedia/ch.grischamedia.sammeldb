@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/page.xsd">
+	<import>
+		<page identifier="ch.grischamedia.sammel.SammelPage">
+			<pageType>system</pageType>
+			<handler>wcf\system\page\handler\SammelPageHandler</handler>
+			<controller>wcf\page\SammelPage</controller>
+			<name language="de">SammelDB</name>
+			<name language="en">SammelDB</name>
+			<permissions>user.sammel.canEdit,user.sammel.canSee</permissions>
+			
+			<content language="en">
+				<title>SammelDB</title>
+			</content>
+			<content language="de">
+				<title>SammelDB</title>
+			</content>
+		</page>
+	</import>
+</data>

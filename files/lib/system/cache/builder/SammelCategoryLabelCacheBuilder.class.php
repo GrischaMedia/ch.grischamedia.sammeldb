@@ -9,7 +9,7 @@ use wcf\system\WCF;
  * Caches the available label group ids for sammel categories.
  *
  * @author		GrischaMedia.ch
- * @copyright	2019-2020 GrischaMedia.ch
+ * @copyright	2019-2021 GrischaMedia.ch
  * @license		GrischaMedia.ch Commercial License <https://GrischaMedia.ch.de>
  * @package		ch.grischamedia.sammeldb
  */

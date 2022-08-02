@@ -37,11 +37,15 @@
 		<item name="wcf.acp.option.sammel_excerpt_length"><![CDATA[Ausschnittlänge]]></item>
 		<item name="wcf.acp.option.sammel_items_per_page"><![CDATA[Items pro Seite]]></item>
 		<item name="wcf.acp.option.sammel_table_icon"><![CDATA[Spalte Icon]]></item>
+		<item name="wcf.acp.option.sammel_table_icon_disable"><![CDATA[Icon ausblenden]]></item>
 		<item name="wcf.acp.option.sammel_table_title"><![CDATA[Spalte Titel]]></item>
 		<item name="wcf.acp.option.sammel_table_details"><![CDATA[Spalte Details]]></item>
 		<item name="wcf.acp.option.sammel_table_number"><![CDATA[Spalte Anzahl]]></item>
+		<item name="wcf.acp.option.sammel_table_number_disable"><![CDATA[Anzahl ausblenden]]></item>
 		<item name="wcf.acp.option.sammel_table_online"><![CDATA[Spalte Online]]></item>
+		<item name="wcf.acp.option.sammel_table_online_disable"><![CDATA[Online ausblenden]]></item>
 		<item name="wcf.acp.option.sammel_table_url"><![CDATA[Spalte URL]]></item>
+		<item name="wcf.acp.option.sammel_table_url_disable"><![CDATA[URL ausblenden]]></item>
 		<item name="wcf.acp.option.sammel_icon_icon"><![CDATA[Icon]]></item>
 		<item name="wcf.acp.option.sammel_icon_icon.description"><![CDATA[Zu nutzendes Font Awesome Icon, wenn kein Icon hoch geladen wird.]]></item>
 		<item name="wcf.acp.option.sammel_icon_maxSize"><![CDATA[Maximale Dateigröße]]></item>
@@ -51,6 +55,7 @@
 		<item name="wcf.sammel.item.add"><![CDATA[Item hinzufügen]]></item>
 		<item name="wcf.sammel.item.add.category.warning"><![CDATA[Es konnte keine aktive Kategorie gefunden werden.]]></item>
 		<item name="wcf.sammel.item.categoryID"><![CDATA[Kategorie]]></item>
+		<item name="wcf.sammel.item.categoryID.all"><![CDATA[Alle Kategorien]]></item>
 		<item name="wcf.sammel.item.categoryID.error.invalid"><![CDATA[Die Kategorie ist ungültig.]]></item>
 		<item name="wcf.sammel.item.data"><![CDATA[Daten]]></item>
 		<item name="wcf.sammel.item.delete.sure"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Willst du{else}Wollen Sie{/if} das Item wirklich löschen?]]></item>

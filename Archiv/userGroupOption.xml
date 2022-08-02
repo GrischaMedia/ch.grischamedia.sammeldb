@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/userGroupOption.xsd">
+	<import>
+		<categories>
+			<category name="user.sammel">
+				<parent>user</parent>
+			</category>
+			
+			<category name="admin.sammel">
+				<parent>admin.application</parent>
+			</category>
+		</categories>
+		
+		<options>
+			<option name="admin.sammel.canManage">
+				<categoryname>admin.sammel</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+				<usersonly>1</usersonly>
+			</option>
+			
+			<option name="user.sammel.canSee">
+				<categoryname>user.sammel</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			
+			<option name="user.sammel.canEdit">
+				<categoryname>user.sammel</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+				<usersonly>1</usersonly>
+			</option>
+		</options>
+	</import>
+</data>

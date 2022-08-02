@@ -5,9 +5,9 @@
 		<packagedescription>Create a database of your collections such as games, books, comics and more.</packagedescription> 
 		<packagename language="de">GrischaMedia SammelDB</packagename>
 		<packagedescription language="de">Erstellen Sie eine Datenbank über Ihre Sammlungen wie Games, Bücher, Comics uvm..</packagedescription>
-		<version>5.5.0</version>
-		<date>2022-07-31</date>
-		<license><![CDATA[GrischaMedia.ch Free Licence]]></license>
+		<version>5.5.1</version>
+		<date>2022-08-02</date>
+		<license><![CDATA[GrischaMedia.ch Commercial Licence]]></license>
 	</packageinformation>
 	
 	<authorinformation>
@@ -16,11 +16,11 @@
 	</authorinformation>
 	
 	<requiredpackages>
-		<requiredpackage minversion="5.4.0">com.woltlab.wcf</requiredpackage>
+		<requiredpackage minversion="5.2.10">com.woltlab.wcf</requiredpackage>
 	</requiredpackages>
 	
 	<excludedpackages>
-		<excludedpackage version="5.6.0 Alpha 1">com.woltlab.wcf</excludedpackage>
+		<excludedpackage version="5.5.0 Alpha 1">com.woltlab.wcf</excludedpackage>
 	</excludedpackages>
 	
 	<instructions type="install">
@@ -38,35 +38,38 @@
 		<instruction type="menuItem">menuItem.xml</instruction>
 	</instructions>
 	
-	<instructions type="update" fromversion="1.0.1 RC 1">
-		<instruction type="file">files.tar</instruction>
-		<instruction type="option">option.xml</instruction>
-		<instruction type="language">language/*.xml</instruction>
-	</instructions>
-	
-	<instructions type="update" fromversion="5.2.0">
-		<instruction type="file">files.tar</instruction>
-		<instruction type="template">templates.tar</instruction>
-		<instruction type="objectType">objectType.xml</instruction>
-		<instruction type="aclOption">aclOption.xml</instruction>
-		<instruction type="option">option.xml</instruction>
-		<instruction type="language">language/*.xml</instruction>
-		<instruction type="sql">update_101.sql</instruction>
-	</instructions>
-	
 	<instructions type="update" fromversion="5.2.1">
+		<instruction type="file">files.tar</instruction>
+		<instruction type="option">option.xml</instruction>
+		<instruction type="template">templates.tar</instruction>
 		<instruction type="language">language/*.xml</instruction>
 	</instructions>
-
+	
 	<instructions type="update" fromversion="5.3.0">
+		<instruction type="file">files.tar</instruction>
+		<instruction type="option">option.xml</instruction>
+		<instruction type="template">templates.tar</instruction>
 		<instruction type="language">language/*.xml</instruction>
 	</instructions>
-
+	
 	<instructions type="update" fromversion="5.4.0">
+		<instruction type="file">files.tar</instruction>
+		<instruction type="option">option.xml</instruction>
+		<instruction type="template">templates.tar</instruction>
 		<instruction type="language">language/*.xml</instruction>
 	</instructions>
 
 	<instructions type="update" fromversion="5.4.1">
+		<instruction type="file">files.tar</instruction>
+		<instruction type="option">option.xml</instruction>
+		<instruction type="template">templates.tar</instruction>
+		<instruction type="language">language/*.xml</instruction>
+	</instructions>
+
+	<instructions type="update" fromversion="5.5.0">
+		<instruction type="file">files.tar</instruction>
+		<instruction type="option">option.xml</instruction>
+		<instruction type="template">templates.tar</instruction>
 		<instruction type="language">language/*.xml</instruction>
 	</instructions>
 </package>

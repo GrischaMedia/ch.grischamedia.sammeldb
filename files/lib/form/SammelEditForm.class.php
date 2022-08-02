@@ -14,7 +14,7 @@ use wcf\util\HeaderUtil;
  * Shows the SammelDB edit form.
  * 
  * @author		GrischaMedia.ch
- * @copyright	2019-2020 GrischaMedia.ch
+ * @copyright	2019-2021 GrischaMedia.ch
  * @license		GrischaMedia.ch Commercial License <https://GrischaMedia.ch.de>
  * @package		ch.grischamedia.sammeldb
  */

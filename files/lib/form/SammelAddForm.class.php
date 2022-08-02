@@ -20,7 +20,7 @@ use wcf\util\StringUtil;
  * Shows the SammelDB add form.
  * 
  * @author		GrischaMedia.ch
- * @copyright	2019-2020 GrischaMedia.ch
+ * @copyright	2019-2021 GrischaMedia.ch
  * @license		GrischaMedia.ch Commercial License <https://GrischaMedia.ch.de>
  * @package		ch.grischamedia.sammeldb
  */
@@ -199,33 +199,33 @@ class SammelAddForm extends AbstractForm {
 			throw new UserInputException('categoryID', 'invalid');
 		}
 		
-		// number, except empty ufn
-		//if (empty($this->number)) {
-		//	throw new UserInputException('number', 'empty');
-		//}
-		
-		if (mb_strlen($this->title) > 192) {
-			throw new UserInputException('number', 'tooLong');
-		}
-		
-		if (ENABLE_CENSORSHIP) {
-			$result = Censorship::getInstance()->test($this->number);
-			if ($result) {
-				WCF::getTPL()->assign('censoredWords', $result);
-				throw new UserInputException('number', 'censoredWordsFound');
+		// number
+		if (!SAMMEL_TABLE_NUMBER_DISABLE) {
+			if (mb_strlen($this->number) > 192) {
+				throw new UserInputException('number', 'tooLong');
+			}
+			
+			if (ENABLE_CENSORSHIP) {
+				$result = Censorship::getInstance()->test($this->number);
+				if ($result) {
+					WCF::getTPL()->assign('censoredWords', $result);
+					throw new UserInputException('number', 'censoredWordsFound');
+				}
 			}
 		}
 		
 		// url
-		if (mb_strlen($this->url) > 60000) {
-			throw new UserInputException('url', 'tooLong');
-		}
-		
-		if (ENABLE_CENSORSHIP) {
-			$result = Censorship::getInstance()->test($this->url);
-			if ($result) {
-				WCF::getTPL()->assign('censoredWords', $result);
-				throw new UserInputException('url', 'censoredWordsFound');
+		if (!SAMMEL_TABLE_URL_DISABLE) {
+			if (mb_strlen($this->url) > 60000) {
+				throw new UserInputException('url', 'tooLong');
+			}
+			
+			if (ENABLE_CENSORSHIP) {
+				$result = Censorship::getInstance()->test($this->url);
+				if ($result) {
+					WCF::getTPL()->assign('censoredWords', $result);
+					throw new UserInputException('url', 'censoredWordsFound');
+				}
 			}
 		}
 		

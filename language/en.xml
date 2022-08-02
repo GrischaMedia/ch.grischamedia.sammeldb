@@ -37,11 +37,15 @@
 		<item name="wcf.acp.option.sammel_excerpt_length"><![CDATA[Excerpt Length]]></item>
 		<item name="wcf.acp.option.sammel_items_per_page"><![CDATA[Items per page]]></item>
 		<item name="wcf.acp.option.sammel_table_icon"><![CDATA[Column Icon]]></item>
+		<item name="wcf.acp.option.sammel_table_icon_disable"><![CDATA[Hide icon]]></item>
 		<item name="wcf.acp.option.sammel_table_title"><![CDATA[Column Title]]></item>
 		<item name="wcf.acp.option.sammel_table_details"><![CDATA[Column Details]]></item>
 		<item name="wcf.acp.option.sammel_table_number"><![CDATA[Column Number]]></item>
+		<item name="wcf.acp.option.sammel_table_number_disable"><![CDATA[Hide number]]></item>
 		<item name="wcf.acp.option.sammel_table_online"><![CDATA[Column Online]]></item>
+		<item name="wcf.acp.option.sammel_table_online_disable"><![CDATA[Hide online]]></item>
 		<item name="wcf.acp.option.sammel_table_url"><![CDATA[Column URL]]></item>
+		<item name="wcf.acp.option.sammel_table_url_disable"><![CDATA[Hide URL]]></item>
 		<item name="wcf.acp.option.sammel_icon_icon"><![CDATA[Icon]]></item>
 		<item name="wcf.acp.option.sammel_icon_icon.description"><![CDATA[Font Awesome Icon to be used if no icon is uploaded.]]></item>
 		<item name="wcf.acp.option.sammel_icon_maxSize"><![CDATA[Maximum Filesize]]></item>
@@ -51,6 +55,7 @@
 		<item name="wcf.sammel.item.add"><![CDATA[Add Item]]></item>
 		<item name="wcf.sammel.item.add.category.warning"><![CDATA[There is no active category.]]></item>
 		<item name="wcf.sammel.item.categoryID"><![CDATA[Category]]></item>
+		<item name="wcf.sammel.item.categoryID.all"><![CDATA[All Categories]]></item>
 		<item name="wcf.sammel.item.categoryID.error.invalid"><![CDATA[Category is invalid.]]></item>
 		<item name="wcf.sammel.item.data"><![CDATA[Data]]></item>
 		<item name="wcf.sammel.item.delete.sure"><![CDATA[Do you really want to delete the item?]]></item>

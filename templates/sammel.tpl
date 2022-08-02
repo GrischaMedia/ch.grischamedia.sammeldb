@@ -11,11 +11,36 @@
 {include file='header'}
 
 <form method="post" action="{link controller='Sammel'}{/link}">
-	<div class="formSubmit" style="text-align:left;">
-		<input type="text" id="search" name="search" value="{$search}" placeholder="{lang}wcf.sammel.search.string{/lang}" class="medium">
-		<input type="submit" value="{lang}wcf.sammel.search{/lang}" accesskey="s">
-		{@SECURITY_TOKEN_INPUT_TAG}
-	</div>
+	<section class="section">
+		<div class="row rowColGap formGrid">
+			<dl class="col-xs-12 col-md-2">
+				<dt></dt>
+				<dd>
+					<input type="text" id="search" name="search" value="{$search}" placeholder="{lang}wcf.sammel.search.string{/lang}" class="medium">
+				</dd>
+			</dl>
+			
+			<dl class="col-xs-12 col-md-2">
+				<dt></dt>
+				<dd>
+					<select id="categoryID" name="categoryID">
+						<option value="0"{if $categoryID == 0} selected="selected"{/if}>{lang}wcf.sammel.item.categoryID.all{/lang}</option>
+						<option value="-1"{if $categoryID == -1} selected="selected"{/if}>{lang}wcf.sammel.category.none{/lang}</option>
+						{include file='categoryOptionList'}
+					</select>
+				</dd>
+			</dl>
+			
+			<dl class="formSubmit col-xs-12 col-md-2">
+				<dt></dt>
+				<dd>
+					<input type="submit" value="{lang}wcf.sammel.search{/lang}" accesskey="s">
+					{csrfToken}
+				</dd>
+			</dl>
+		</div>
+	</section>
+	
 </form>
 
 {hascontent}
@@ -23,6 +48,7 @@
 		{content}
 			{assign var='linkParameters' value=''}
 			{if $search}{capture append=linkParameters}&search={@$search|rawurlencode}{/capture}{/if}
+			{if $categoryID}{capture append=linkParameters}&categoryID={@$categoryID|rawurlencode}{/capture}{/if}
 			
 			{pages print=true assign=pagesLinks controller="Sammel" link="pageNo=%d&sortField=$sortField&sortOrder=$sortOrder$linkParameters"}
 		{/content}
@@ -37,12 +63,12 @@
 					{if $__wcf->session->getPermission('user.sammel.canEdit')}
 						<th class="columnID columnSammelID{if $sortField == 'sammelID'} active {@$sortOrder}{/if}" colspan="2"><a href="{link controller='Sammel'}sortField=sammelID&sortOrder={if $sortField == 'sammelID' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{@$linkParameters}{/link}">{lang}wcf.sammel.item.id{/lang}</a></th>
 					{/if}
-					<th class="columnText columnThumb{if $sortField == 'iconPath'} active {@$sortOrder}{/if}"><a href="{link controller='Sammel'}pageNo={@$pageNo}&sortField=iconPath&sortOrder={if $sortField == 'iconPath' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{@$linkParameters}{/link}">{lang}{SAMMEL_TABLE_ICON}{/lang}</a></th>
+					{if !SAMMEL_TABLE_ICON_DISABLE}<th class="columnText columnThumb{if $sortField == 'iconPath'} active {@$sortOrder}{/if}"><a href="{link controller='Sammel'}pageNo={@$pageNo}&sortField=iconPath&sortOrder={if $sortField == 'iconPath' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{@$linkParameters}{/link}">{lang}{SAMMEL_TABLE_ICON}{/lang}</a></th>{/if}
 					<th class="columnText columnTitle{if $sortField == 'title'} active {@$sortOrder}{/if}"><a href="{link controller='Sammel'}pageNo={@$pageNo}&sortField=title&sortOrder={if $sortField == 'title' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{@$linkParameters}{/link}">{lang}{SAMMEL_TABLE_TITLE}{/lang}</a></th>
 					<th class="columnText columnDetails{if $sortField == 'details'} active {@$sortOrder}{/if}"><a href="{link controller='Sammel'}pageNo={@$pageNo}&sortField=details&sortOrder={if $sortField == 'details' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{@$linkParameters}{/link}">{lang}{SAMMEL_TABLE_DETAILS}{/lang}</a></th>
-					<th class="columnText columnNumber{if $sortField == 'number'} active {@$sortOrder}{/if}"><a href="{link controller='Sammel'}pageNo={@$pageNo}&sortField=number&sortOrder={if $sortField == 'number' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{@$linkParameters}{/link}">{lang}{SAMMEL_TABLE_NUMBER}{/lang}</a></th>
-					<th class="columnText columnOnline{if $sortField == 'online'} active {@$sortOrder}{/if}"><a href="{link controller='Sammel'}pageNo={@$pageNo}&sortField=online&sortOrder={if $sortField == 'online' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{@$linkParameters}{/link}">{lang}{SAMMEL_TABLE_ONLINE}{/lang}</a></th>
-					<th class="columnText columnUrl{if $sortField == 'url'} active {@$sortOrder}{/if}"><a href="{link controller='Sammel'}pageNo={@$pageNo}&sortField=url&sortOrder={if $sortField == 'url' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{@$linkParameters}{/link}">{lang}{SAMMEL_TABLE_URL}{/lang}</a></th>
+					{if !SAMMEL_TABLE_NUMBER_DISABLE}<th class="columnText columnNumber{if $sortField == 'number'} active {@$sortOrder}{/if}"><a href="{link controller='Sammel'}pageNo={@$pageNo}&sortField=number&sortOrder={if $sortField == 'number' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{@$linkParameters}{/link}">{lang}{SAMMEL_TABLE_NUMBER}{/lang}</a></th>{/if}
+					{if !SAMMEL_TABLE_ONLINE_DISABLE}<th class="columnText columnOnline{if $sortField == 'online'} active {@$sortOrder}{/if}"><a href="{link controller='Sammel'}pageNo={@$pageNo}&sortField=online&sortOrder={if $sortField == 'online' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{@$linkParameters}{/link}">{lang}{SAMMEL_TABLE_ONLINE}{/lang}</a></th>{/if}
+					{if !SAMMEL_TABLE_URL_DISABLE}<th class="columnText columnUrl{if $sortField == 'url'} active {@$sortOrder}{/if}"><a href="{link controller='Sammel'}pageNo={@$pageNo}&sortField=url&sortOrder={if $sortField == 'url' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{@$linkParameters}{/link}">{lang}{SAMMEL_TABLE_URL}{/lang}</a></th>{/if}
 					
 				</tr>
 			</thead>
@@ -67,13 +93,15 @@
 								</td>
 								<td class="columnID">{@$item->sammelID}</td>
 							{/if}
-							<td class="columnText columnThumb">
-								{if $item->iconPath}
-									<span><img src="{$item->iconPath}" alt="icon" class="sammelIcon pointer jsSammelIcon" data-object-id="{@$item->sammelID}"></span>
-								{else}
-									<span class="icon icon64 fa-{SAMMEL_ICON_ICON}"></span>
-								{/if}
-							</td>
+							{if !SAMMEL_TABLE_ICON_DISABLE}
+								<td class="columnText columnThumb">
+									{if $item->iconPath}
+										<span><img src="{$item->iconPath}" alt="icon" class="sammelIcon pointer jsSammelIcon" data-object-id="{@$item->sammelID}"></span>
+									{else}
+										<span class="icon icon64 fa-{SAMMEL_ICON_ICON}"></span>
+									{/if}
+								</td>
+							{/if}
 							<td class="columnText columnTitle sammelItem">
 								{if $item->hasLabels}
 									<span class="sammelLabels">
@@ -92,10 +120,9 @@
 									{@$item->details}
 								{/if}
 							</td>
-							<td class="columnText columnNumber">{$item->number}</td>
-							<td class="columnText columnOnline">{if $item->online}{lang}wcf.sammel.item.online.yes{/lang}{else}{lang}wcf.sammel.item.online.no{/lang}{/if}</td>
-							<td class="columnText columnUrl">{@$item->url}</td>
-							
+							{if !SAMMEL_TABLE_NUMBER_DISABLE}<td class="columnText columnNumber">{$item->number}</td>{/if}
+							{if !SAMMEL_TABLE_ONLINE_DISABLE}<td class="columnText columnOnline">{if $item->online}{lang}wcf.sammel.item.online.yes{/lang}{else}{lang}wcf.sammel.item.online.no{/lang}{/if}</td>{/if}
+							{if !SAMMEL_TABLE_URL_DISABLE}<td class="columnText columnUrl">{@$item->url}</td>{/if}
 						</tr>
 					{/foreach}
 				{/foreach}
@@ -132,14 +159,16 @@
 	require(['GRISCHAMEDIA/Sammel/Open'], function(SammelOpen) {
 		new SammelOpen();
 	});
-	require(['Language', 'GRISCHAMEDIA/Sammel/ShowIcon'], function(Language, SammelShowIcon) {
-		Language.addObject({
-			'wcf.sammel.preview':	'{lang}wcf.sammel.preview{/lang}'
-		});
-		
-		new SammelShowIcon();
-	});
 	
+	{if !SAMMEL_TABLE_ICON_DISABLE}
+		require(['Language', 'GRISCHAMEDIA/Sammel/ShowIcon'], function(Language, SammelShowIcon) {
+			Language.addObject({
+				'wcf.sammel.preview':	'{lang}wcf.sammel.preview{/lang}'
+			});
+			
+			new SammelShowIcon();
+		});
+	{/if}
 </script>
 
 <script data-relocate="true">

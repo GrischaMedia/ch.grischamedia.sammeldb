@@ -4,6 +4,7 @@ use wcf\data\category\CategoryList;
 use wcf\data\sammel\Sammel;
 use wcf\data\sammel\SammelList;
 use wcf\data\sammel\category\SammelCategory;
+use wcf\data\sammel\category\SammelCategoryNodeTree;
 use wcf\system\category\CategoryHandler;
 use wcf\system\WCF;
 use wcf\util\StringUtil;
@@ -12,7 +13,7 @@ use wcf\util\StringUtil;
  * Shows the SammelDB
  * 
  * @author		GrischaMedia.ch
- * @copyright	2019-2020 GrischaMedia.ch
+ * @copyright	2019-2021 GrischaMedia.ch
  * @license		GrischaMedia.ch Commercial License <https://GrischaMedia.ch.de>
  * @package		ch.grischamedia.sammeldb
  */
@@ -52,6 +53,8 @@ class SammelPage extends SortablePage{
 	 * search
 	 */
 	public $search = '';
+	public $categoryID = 0;
+	public $categoryNodeTree = null;
 	
 	/**
 	 * @inheritDoc
@@ -68,6 +71,7 @@ class SammelPage extends SortablePage{
 			$categoryList->readObjects();
 			$this->categories = $categoryList->getObjects();
 		}
+		$this->categoryNodeTree = new SammelCategoryNodeTree('ch.grischamedia.sammel.category');
 	}
 	
 	/**
@@ -78,6 +82,7 @@ class SammelPage extends SortablePage{
 		
 		// read search
 		if (!empty($_REQUEST['search'])) $this->search = StringUtil::trim($_REQUEST['search']);
+		if (!empty($_REQUEST['categoryID'])) $this->categoryID = intval($_REQUEST['categoryID']);
 	}
 	
 	/**
@@ -95,11 +100,30 @@ class SammelPage extends SortablePage{
 		// categories, show items without category
 		$accessibleCategoryIDs = SammelCategory::getAccessibleCategoryIDs();
 		
-		if (empty($accessibleCategoryIDs)) {
-			$this->objectList->getConditionBuilder()->add('sammel.categoryID IS NULL');
-		}
-		else {
-			$this->objectList->getConditionBuilder()->add('(sammel.categoryID IN (?) OR sammel.categoryID IS NULL)', [$accessibleCategoryIDs]);
+		switch ($this->categoryID) {
+			case 0:
+				if (empty($accessibleCategoryIDs)) {
+					$this->objectList->getConditionBuilder()->add('sammel.categoryID IS NULL');
+				}
+				else {
+					$this->objectList->getConditionBuilder()->add('(sammel.categoryID IN (?) OR sammel.categoryID IS NULL)', [$accessibleCategoryIDs]);
+				}
+				break;
+				
+			case -1:
+				$this->objectList->getConditionBuilder()->add('sammel.categoryID IS NULL');
+				break;
+				
+			default:
+				// get children
+				$children = CategoryHandler::getInstance()->getChildCategories($this->categoryID);
+				$ids = [$this->categoryID];
+				if (count($children)) {
+					foreach ($children as $child) {
+						$ids[] = $child->categoryID;
+					}
+				}
+				$this->objectList->getConditionBuilder()->add('(sammel.categoryID IN (?) AND sammel.categoryID IN (?))', [$accessibleCategoryIDs, $ids]);
 		}
 		
 		// disabled
@@ -135,7 +159,9 @@ class SammelPage extends SortablePage{
 		WCF::getTPL()->assign([
 				'categories' => $this->categories,
 				'itemsToCategory' => $this->itemsToCategory,
-				'search' => $this->search
+				'search' => $this->search,
+				'categoryID' => $this->categoryID,
+				'categoryNodeList' => $this->categoryNodeTree->getIterator()
 		]);
 	}
 	

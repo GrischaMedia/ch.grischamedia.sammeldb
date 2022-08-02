@@ -37,32 +37,34 @@
 			</dl>
 			
 			<!-- icon -->
-			<dl id="sammelIconUpload" class="sammelIconUpload{if $errorField == 'icon'} formError{/if}">
-				<dt>{lang}{SAMMEL_TABLE_ICON}{/lang}</dt>
-				<dd>
-					{if $iconLocation}
-						<img src="{$iconLocation}" alt="" id="sammelIcon">
-					{/if}
-					<ul class="buttonList">
-						<li>
-							<div id="sammelIconUploadButton"></div>
-						</li>
-						<li>
-							<button type="button" class="button" id="deleteSammelIcon" {if !$iconLocation} style="display: none;"{/if}>{lang}wcf.sammel.icon.delete{/lang}</button>
-						</li>
-					</ul>
-					{if $errorField == 'icon'}
-						<small class="innerError">
-							{if $errorType == 'empty'}
-								{lang}wcf.global.form.error.empty{/lang}
-							{else}
-								{lang}wcf.sammel.icon.error.{@$errorType}{/lang}
-							{/if}
-						</small>
-					{/if}
-					<small>{lang}wcf.sammel.icon.description{/lang}</small>
-				</dd>
-			</dl>
+			{if !SAMMEL_TABLE_ICON_DISABLE}
+				<dl id="sammelIconUpload" class="sammelIconUpload{if $errorField == 'icon'} formError{/if}">
+					<dt>{lang}{SAMMEL_TABLE_ICON}{/lang}</dt>
+					<dd>
+						{if $iconLocation}
+							<img src="{$iconLocation}" alt="" id="sammelIcon">
+						{/if}
+						<ul class="buttonList">
+							<li>
+								<div id="sammelIconUploadButton"></div>
+							</li>
+							<li>
+								<button type="button" class="button" id="deleteSammelIcon" {if !$iconLocation} style="display: none;"{/if}>{lang}wcf.sammel.icon.delete{/lang}</button>
+							</li>
+						</ul>
+						{if $errorField == 'icon'}
+							<small class="innerError">
+								{if $errorType == 'empty'}
+									{lang}wcf.global.form.error.empty{/lang}
+								{else}
+									{lang}wcf.sammel.icon.error.{@$errorType}{/lang}
+								{/if}
+							</small>
+						{/if}
+						<small>{lang}wcf.sammel.icon.description{/lang}</small>
+					</dd>
+				</dl>
+			{/if}
 			
 			<!-- category -->
 			<dl{if $errorField == 'categoryID'} class="formError"{/if}>
@@ -102,44 +104,52 @@
 		{include file='messageFormTabs' wysiwygContainerID='details'}
 		<div class="section"></div>
 		
-		<div class="section">
-			<h2 class="sectionTitle">{lang}wcf.sammel.item.data{/lang}</h2>
-			
-			<!-- data -->
-			<dl{if $errorField == 'number'} class="formError"{/if}>
-				<dt><label for="number">{lang}{SAMMEL_TABLE_NUMBER}{/lang}</label></dt>
-				<dd>
-					<input type="text" id="number" name="number" value="{$number}" maxlength="192" class="long" />
-					
-					{if $errorField == 'number'}
-						<small class="innerError">
-							{lang}wcf.sammel.item.number.error.{@$errorType}{/lang}
-						</small>
-					{/if}
-				</dd>
-			</dl>
-			
-			<dl>
-				<dt><label for="online">{lang}{SAMMEL_TABLE_ONLINE}{/lang}</label></dt>
-				<dd>
-					<label><input type="radio" name="online" value="0"{if $online == 0} checked{/if} /> {lang}wcf.sammel.item.online.no{/lang}</label>
-					<label><input type="radio" name="online" value="1"{if $online == 1} checked{/if} /> {lang}wcf.sammel.item.online.yes{/lang}</label>
-				</dd>
-			</dl>
-			
-			<dl{if $errorField == 'url'} class="formError"{/if}>
-				<dt><label for="url">{lang}{SAMMEL_TABLE_URL}{/lang}</label></dt>
-				<dd>
-					<input type="text" id="url" name="url" value="{$url}" class="long" />
-					
-					{if $errorField == 'url'}
-						<small class="innerError">
-							{lang}wcf.sammel.item.url.error.{@$errorType}{/lang}
-						</small>
-					{/if}
-				</dd>
-			</dl>
-		</div>
+		<!-- data -->
+		{if !SAMMEL_TABLE_NUMBER_DISABLE || !SAMMEL_TABLE_ONLINE_DISABLE || !SAMMEL_TABLE_URL_DISABLE}
+			<div class="section">
+				<h2 class="sectionTitle">{lang}wcf.sammel.item.data{/lang}</h2>
+				
+				{if !SAMMEL_TABLE_NUMBER_DISABLE}
+					<dl{if $errorField == 'number'} class="formError"{/if}>
+						<dt><label for="number">{lang}{SAMMEL_TABLE_NUMBER}{/lang}</label></dt>
+						<dd>
+							<input type="text" id="number" name="number" value="{$number}" maxlength="192" class="long" />
+							
+							{if $errorField == 'number'}
+								<small class="innerError">
+									{lang}wcf.sammel.item.number.error.{@$errorType}{/lang}
+								</small>
+							{/if}
+						</dd>
+					</dl>
+				{/if}
+				
+				{if !SAMMEL_TABLE_ONLINE_DISABLE}
+					<dl>
+						<dt><label for="online">{lang}{SAMMEL_TABLE_ONLINE}{/lang}</label></dt>
+						<dd>
+							<label><input type="radio" name="online" value="0"{if $online == 0} checked{/if} /> {lang}wcf.sammel.item.online.no{/lang}</label>
+							<label><input type="radio" name="online" value="1"{if $online == 1} checked{/if} /> {lang}wcf.sammel.item.online.yes{/lang}</label>
+						</dd>
+					</dl>
+				{/if}
+				
+				{if !SAMMEL_TABLE_URL_DISABLE}
+					<dl{if $errorField == 'url'} class="formError"{/if}>
+						<dt><label for="url">{lang}{SAMMEL_TABLE_URL}{/lang}</label></dt>
+						<dd>
+							<input type="text" id="url" name="url" value="{$url}" class="long" />
+							
+							{if $errorField == 'url'}
+								<small class="innerError">
+									{lang}wcf.sammel.item.url.error.{@$errorType}{/lang}
+								</small>
+							{/if}
+						</dd>
+					</dl>
+				{/if}
+			</div>
+		{/if}
 		
 		{if $labelGroups|count}
 			<div class="section" id="sammelLabelContainer">
@@ -189,7 +199,7 @@
 		
 		<div class="formSubmit">
 			<input id="saveButton" type="submit" value="{lang}wcf.global.button.submit{/lang}" accesskey="s" />
-			{@SECURITY_TOKEN_INPUT_TAG}
+			{csrfToken}
 			<input type="hidden" name="tmpHash" value="{$tmpHash}">
 		</div>
 	</form>
@@ -211,7 +221,9 @@
 			new SAMMEL.SammelLabelChooser({ {implode from=$labelGroupsToCategories key=__labelCategoryID item=labelGroupIDs}{@$__labelCategoryID}: [ {implode from=$labelGroupIDs item=labelGroupID}{@$labelGroupID}{/implode} ] {/implode} }, { {implode from=$labelIDs key=groupID item=labelID}{@$groupID}: {@$labelID}{/implode} }, '#formContainer');
 		{/if}
 		
-		new SAMMEL.IconUpload({if $action == 'edit'}{@$sammel->sammelID}{else}0{/if}, '{$tmpHash}');
+		{if !SAMMEL_TABLE_ICON_DISABLE}
+			new SAMMEL.IconUpload({if $action == 'edit'}{@$sammel->sammelID}{else}0{/if}, '{$tmpHash}');
+		{/if}
 	});
 </script>
 

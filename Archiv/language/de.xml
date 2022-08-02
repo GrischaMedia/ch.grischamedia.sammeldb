@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/language.xsd" languagecode="de" languagename="Deutsch" countrycode="de">
+	<category name="wcf.acl">
+		<item name="wcf.acl.option.ch.grischamedia.sammel.category.canViewCategory"><![CDATA[Kann Kategorie sehen]]></item>
+		<item name="wcf.acl.option.ch.grischamedia.sammel.category.canUseCategory"><![CDATA[Kann Kategorie nutzen]]></item>
+	</category>
+	
+	<category name="wcf.acp.group">
+		<item name="wcf.acp.group.option.category.admin.sammel"><![CDATA[SammelDB]]></item>
+		<item name="wcf.acp.group.option.category.user.sammel"><![CDATA[SammelDB]]></item>
+		<item name="wcf.acp.group.option.admin.sammel.canManage"><![CDATA[Kann SammelDB-Kategorien verwalten]]></item>
+		<item name="wcf.acp.group.option.user.sammel.canEdit"><![CDATA[Kann SammelDB verwalten]]></item>
+		<item name="wcf.acp.group.option.user.sammel.canSee"><![CDATA[Kann SammelDB sehen]]></item>
+	</category>
+	
+	<category name="wcf.acp.label">
+		<item name="wcf.acp.label.container.ch.grischamedia.sammel.category"><![CDATA[SammelDB]]></item>
+	</category>
+	
+	<category name="wcf.acp.menu">
+		<item name="wcf.acp.menu.link.sammel"><![CDATA[SammelDB]]></item>
+		<item name="wcf.acp.menu.link.sammel.category.add"><![CDATA[Kategorie hinzufügen]]></item>
+		<item name="wcf.acp.menu.link.sammel.category.list"><![CDATA[Kategorien]]></item>
+	</category>
+	
+	<category name="wcf.acp.option">
+		<item name="wcf.acp.option.category.sammel"><![CDATA[SammelDB]]></item>
+		<item name="wcf.acp.option.category.sammel.icon"><![CDATA[Icon]]></item>
+		<item name="wcf.acp.option.category.sammel.page"><![CDATA[Seite]]></item>
+		<item name="wcf.acp.option.category.sammel.text"><![CDATA[Texte]]></item>
+		<item name="wcf.acp.option.sammel.table_details"><![CDATA[Details]]></item>
+		<item name="wcf.acp.option.sammel.table_icon"><![CDATA[Icon]]></item>
+		<item name="wcf.acp.option.sammel.table_number"><![CDATA[Anzahl]]></item>
+		<item name="wcf.acp.option.sammel.table_online"><![CDATA[Online]]></item>
+		<item name="wcf.acp.option.sammel.table_title"><![CDATA[Titel]]></item>
+		<item name="wcf.acp.option.sammel.table_url"><![CDATA[URL]]></item>
+		<item name="wcf.acp.option.sammel_excerpt_length"><![CDATA[Ausschnittlänge]]></item>
+		<item name="wcf.acp.option.sammel_items_per_page"><![CDATA[Items pro Seite]]></item>
+		<item name="wcf.acp.option.sammel_table_icon"><![CDATA[Spalte Icon]]></item>
+		<item name="wcf.acp.option.sammel_table_title"><![CDATA[Spalte Titel]]></item>
+		<item name="wcf.acp.option.sammel_table_details"><![CDATA[Spalte Details]]></item>
+		<item name="wcf.acp.option.sammel_table_number"><![CDATA[Spalte Anzahl]]></item>
+		<item name="wcf.acp.option.sammel_table_online"><![CDATA[Spalte Online]]></item>
+		<item name="wcf.acp.option.sammel_table_url"><![CDATA[Spalte URL]]></item>
+		<item name="wcf.acp.option.sammel_icon_icon"><![CDATA[Icon]]></item>
+		<item name="wcf.acp.option.sammel_icon_icon.description"><![CDATA[Zu nutzendes Font Awesome Icon, wenn kein Icon hoch geladen wird.]]></item>
+		<item name="wcf.acp.option.sammel_icon_maxSize"><![CDATA[Maximale Dateigröße]]></item>
+	</category>
+	
+	<category name="wcf.sammel">
+		<item name="wcf.sammel.item.add"><![CDATA[Item hinzufügen]]></item>
+		<item name="wcf.sammel.item.add.category.warning"><![CDATA[Es konnte keine aktive Kategorie gefunden werden.]]></item>
+		<item name="wcf.sammel.item.categoryID"><![CDATA[Kategorie]]></item>
+		<item name="wcf.sammel.item.categoryID.error.invalid"><![CDATA[Die Kategorie ist ungültig.]]></item>
+		<item name="wcf.sammel.item.data"><![CDATA[Daten]]></item>
+		<item name="wcf.sammel.item.delete.sure"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Willst du{else}Wollen Sie{/if} das Item wirklich löschen?]]></item>
+		<item name="wcf.sammel.item.details"><![CDATA[Details]]></item>
+		<item name="wcf.sammel.item.details.error.censoredWordsFound"><![CDATA[{lang}{SAMMEL_TABLE_DETAILS}{/lang} enthält folgende zensierte Wörter: {implode from=$censoredWords key=censoredWord item=number}{$censoredWord}{if $number > 1} ({#$number}×){/if}{/implode}]]></item>
+		<item name="wcf.sammel.item.details.error.empty"><![CDATA[{lang}{SAMMEL_TABLE_DETAILS}{/lang} ist erforderlich.]]></item>
+		<item name="wcf.sammel.item.details.error.tooLong"><![CDATA[{lang}{SAMMEL_TABLE_DETAILS}{/lang} zu lang. Es sind maximal 60.000 Zeichen erlaubt.]]></item>
+		<item name="wcf.sammel.item.edit"><![CDATA[Item bearbeiten]]></item>
+		<item name="wcf.sammel.item.general"><![CDATA[Allgemein]]></item>
+		<item name="wcf.sammel.item.icon"><![CDATA[Icon]]></item>
+		<item name="wcf.sammel.item.id"><![CDATA[ID]]></item>
+		<item name="wcf.sammel.item.number"><![CDATA[Anzahl]]></item>
+		<item name="wcf.sammel.item.number.error.censoredWordsFound"><![CDATA[{lang}{SAMMEL_TABLE_NUMBER}{/lang} enthält folgende zensierte Wörter: {implode from=$censoredWords key=censoredWord item=number}{$censoredWord}{if $number > 1} ({#$number}×){/if}{/implode}]]></item>
+		<item name="wcf.sammel.item.number.error.empty"><![CDATA[{lang}{SAMMEL_TABLE_NUMBER}{/lang} ist erforderlich.]]></item>
+		<item name="wcf.sammel.item.number.error.tooLong"><![CDATA[{lang}{SAMMEL_TABLE_NUMBER}{/lang} ist zu lang. Es sind maximal 192 Zeichen erlaubt]]></item>
+		<item name="wcf.sammel.item.online"><![CDATA[Online]]></item>
+		<item name="wcf.sammel.item.online.no"><![CDATA[nein]]></item>
+		<item name="wcf.sammel.item.online.yes"><![CDATA[ja]]></item>
+		<item name="wcf.sammel.item.title"><![CDATA[Titel]]></item>
+		<item name="wcf.sammel.item.title.error.censoredWordsFound"><![CDATA[{lang}{SAMMEL_TABLE_TITLE}{/lang} enthält folgende zensierte Wörter: {implode from=$censoredWords key=censoredWord item=number}{$censoredWord}{if $number > 1} ({#$number}×){/if}{/implode}]]></item>
+		<item name="wcf.sammel.item.title.error.empty"><![CDATA[{lang}{SAMMEL_TABLE_TITLE}{/lang} ist erforderlich.]]></item>
+		<item name="wcf.sammel.item.title.error.tooLong"><![CDATA[{lang}{SAMMEL_TABLE_TITLE}{/lang} ist zu lang. Es sind maximal 80 Zeichen erlaubt]]></item>
+		<item name="wcf.sammel.item.url"><![CDATA[URL]]></item>
+		<item name="wcf.sammel.item.url.error.censoredWordsFound"><![CDATA[{lang}{SAMMEL_TABLE_URL}{/lang} enthält folgende zensierte Wörter: {implode from=$censoredWords key=censoredWord item=number}{$censoredWord}{if $number > 1} ({#$number}×){/if}{/implode}]]></item>
+		<item name="wcf.sammel.item.url.error.tooLong"><![CDATA[{lang}{SAMMEL_TABLE_URL}{/lang} ist zu lang. Es sind maximal 60.000 Zeichen erlaubt.]]></item>
+		
+		<item name="wcf.sammel.category.none"><![CDATA[Keine Kategorie]]></item>
+		<item name="wcf.sammel.copyright"><![CDATA[<a href="https://www.grischamedia.ch"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if}><strong>SammelDB</strong>, entwickelt von <strong>GrischaMedia.ch</strong></a>]]></item>
+		<item name="wcf.sammel.labels"><![CDATA[Labels]]></item>
+		<item name="wcf.sammel.list"><![CDATA[Items]]></item>
+		<item name="wcf.sammel.more"><![CDATA[mehr...]]></item>
+		<item name="wcf.sammel.preview"><![CDATA[Vorschau]]></item>
+		<item name="wcf.sammel.search"><![CDATA[Suchen]]></item>
+		<item name="wcf.sammel.search.string"><![CDATA[Suchbegriff]]></item>
+		<item name="wcf.sammel.show"><![CDATA[Alles anzeigen]]></item>
+		
+		<item name="wcf.sammel.icon"><![CDATA[Icon]]></item>
+		<item name="wcf.sammel.icon.description"><![CDATA[Das hochgeladene Bild wird neben dem Item angezeigt. Es muss mindestens 144 × 144 px groß sein. Die maximale Dateigröße ist {SAMMEL_ICON_MAXSIZE|filesize}. Erlaubte Dateiendungen sind jpg, jpeg, png.]]></item>
+		<item name="wcf.sammel.icon.delete"><![CDATA[Icon löschen]]></item>
+		<item name="wcf.sammel.icon.delete.confirmMessage"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Willst du{else}Wollen Sie{/if} das Icon wirklich löschen?]]></item>
+		<item name="wcf.sammel.icon.error.invalidExtension"><![CDATA[Die hochgeladene Datei hat eine ungültige Dateiendung.]]></item>
+		<item name="wcf.sammel.icon.error.noImage"><![CDATA[Bei der hochgeladenen Datei handelt es sich um kein Bild.]]></item>
+		<item name="wcf.sammel.icon.error.tooLarge"><![CDATA[Das hochgeladene Bild ist zu groß, um vom Server verarbeitet zu werden.]]></item>
+		<item name="wcf.sammel.icon.error.tooSmall"><![CDATA[Das hochgeladene Bild ist zu klein.]]></item>
+		<item name="wcf.sammel.icon.error.uploadFailed"><![CDATA[Beim Hochladen der Datei ist ein unbekannter Fehler aufgetreten.]]></item>
+	</category>
+</language>

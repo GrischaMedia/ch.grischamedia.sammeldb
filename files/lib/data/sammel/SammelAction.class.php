@@ -18,7 +18,7 @@ use wcf\util\FileUtil;
  * Executes SammelDB-related actions.
  * 
  * @author		GrischaMedia.ch
- * @copyright	2019-2020 GrischaMedia.ch
+ * @copyright	2019-2021 GrischaMedia.ch
  * @license		GrischaMedia.ch Commercial License <https://GrischaMedia.ch.de>
  * @package		ch.grischamedia.sammeldb
  */
@@ -290,6 +290,7 @@ class SammelAction extends AbstractDatabaseObjectAction implements IToggleAction
 	public function validateDeleteIcon() {
 		$this->readString('tmpHash');
 		$this->readInteger('sammelID', true);
+		$this->sammel = null;
 		
 		if (!$this->parameters['sammelID']) {
 			if (!WCF::getSession()->getPermission('user.sammel.canEdit')) {
